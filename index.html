@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestros Lugares ✦ Victor & Daniela</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- PORTADA / HERO -->
+  <header class="hero">
+    <div class="hero__stars" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">✦ una lista de sueños compartidos ✦</p>
+      <h1 class="hero__title">Nuestros<br /><em>Lugares</em></h1>
+      <p class="hero__subtitle">Victor &amp; Daniela</p>
+      <p class="hero__desc">Todos los rincones que queremos explorar juntos, los sabores que nos faltan probar y los caminos que aún no hemos pisado.</p>
+      <a href="#lugares" class="hero__cta">Ver la lista
+        <span class="hero__cta-arrow">↓</span>
+      </a>
+    </div>
+    <div class="hero__moon" aria-hidden="true"></div>
+  </header>
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <main id="lugares" class="main">
+
+    <!-- Buscador + Filtros -->
+    <section class="controls">
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="buscador"
+          class="search-input"
+          placeholder="Buscar un lugar…"
+          aria-label="Buscar lugar"
+        />
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtrar por categoría">
+        <button class="filter-btn active" data-cat="todos">Todos</button>
+        <button class="filter-btn" data-cat="Restaurante">🍽 Restaurante</button>
+        <button class="filter-btn" data-cat="Cafetería">☕ Cafetería</button>
+        <button class="filter-btn" data-cat="Pueblo Mágico">🏡 Pueblo Mágico</button>
+        <button class="filter-btn" data-cat="A Conocer">🗺 A Conocer</button>
+        <button class="filter-btn" data-cat="Paseo">🌿 Paseo</button>
+        <button class="filter-btn" data-cat="Antojito">🌮 Antojito</button>
+        <button class="filter-btn" data-cat="Naturaleza">🌄 Naturaleza</button>
+      </div>
+
+      <div class="sort-wrap">
+        <label for="orden" class="sort-label">Ordenar:</label>
+        <select id="orden" class="sort-select">
+          <option value="prioridad">Por prioridad</option>
+          <option value="nombre">Nombre A–Z</option>
+          <option value="reciente">Más recientes</option>
+          <option value="visitados">Visitados primero</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Contadores -->
+    <div class="stats">
+      <div class="stat">
+        <span class="stat__num" id="stat-total">—</span>
+        <span class="stat__label">lugares guardados</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" id="stat-visitados">—</span>
+        <span class="stat__label">ya visitamos</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" id="stat-pendientes">—</span>
+        <span class="stat__label">por conocer</span>
+      </div>
+    </div>
+
+    <!-- Estado de carga / vacío -->
+    <div id="estado-carga" class="estado" aria-live="polite">
+      <div class="estado__spinner" aria-hidden="true"></div>
+      <p>Cargando lugares mágicos…</p>
+    </div>
+
+    <div id="estado-vacio" class="estado hidden">
+      <p class="estado__emoji">🔭</p>
+      <p>No encontramos ningún lugar con ese filtro.</p>
+    </div>
+
+    <!-- Grid de tarjetas -->
+    <div id="grid-lugares" class="grid" aria-label="Lista de lugares">
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Hecho con 💙 por Victor &amp; Daniela · <span id="anio"></span></p>
+  </footer>
+
+  <!-- Template de tarjeta (oculto, clonado por JS) -->
+  <template id="tpl-tarjeta">
+    <article class="card" aria-label="">
+      <div class="card__header">
+        <div class="card__cat-badge"></div>
+        <div class="card__priority"></div>
+      </div>
+      <h2 class="card__nombre"></h2>
+      <p class="card__desc"></p>
+      <div class="card__actions">
+        <a class="card__btn card__btn--maps" href="#" target="_blank" rel="noopener" aria-label="Abrir en Google Maps">
+          <span aria-hidden="true">📍</span> Maps
+        </a>
+        <a class="card__btn card__btn--social" href="#" target="_blank" rel="noopener" aria-label="Ver en red social">
+          <span aria-hidden="true">🔗</span> Ver post
+        </a>
+        <button class="card__btn card__btn--check" aria-label="Marcar como visitado">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          <span class="check-label">Visitado</span>
+        </button>
+      </div>
+      <div class="card__footer">
+        <span class="card__fecha"></span>
+      </div>
+    </article>
+  </template>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
