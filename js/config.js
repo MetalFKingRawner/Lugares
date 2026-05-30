@@ -17,7 +17,7 @@ const AIRTABLE_CONFIG = {
   baseId: "appyDoNimSlMmySYh",
 
   // El nombre exacto de tu tabla en Airtable
-  tableName: "Nuestros Lugares",
+  tableName: "Lugares",
 };
 
 /*
