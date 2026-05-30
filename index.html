@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- PORTADA / HERO -->
+  <!-- ░░░ PORTADA / HERO ░░░ -->
   <header class="hero">
     <div class="hero__stars" aria-hidden="true"></div>
     <div class="hero__content">
@@ -26,7 +26,7 @@
     <div class="hero__moon" aria-hidden="true"></div>
   </header>
 
-  <!-- SECCIÓN PRINCIPAL -->
+  <!-- ░░░ SECCIÓN PRINCIPAL ░░░ -->
   <main id="lugares" class="main">
 
     <!-- Buscador + Filtros -->
@@ -97,10 +97,104 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ░░░ FOOTER ░░░ -->
   <footer class="footer">
     <p>Hecho con 💙 por Victor &amp; Daniela · <span id="anio"></span></p>
   </footer>
+
+  <!-- ░░░ BOTÓN FLOTANTE AÑADIR ░░░ -->
+  <button class="fab" id="btn-abrir-modal" aria-label="Añadir nuevo lugar">
+    <span class="fab__icon" aria-hidden="true">+</span>
+    <span class="fab__label">Añadir lugar</span>
+  </button>
+
+  <!-- ░░░ MODAL — NUEVO LUGAR ░░░ -->
+  <div class="modal-overlay hidden" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal">
+      <div class="modal__header">
+        <h2 class="modal__titulo" id="modal-titulo">✦ Nuevo lugar</h2>
+        <button class="modal__cerrar" id="btn-cerrar-modal" aria-label="Cerrar">✕</button>
+      </div>
+
+      <div class="modal__body">
+
+        <!-- Nombre -->
+        <div class="campo">
+          <label class="campo__label" for="f-nombre">Nombre <span class="campo__req" aria-hidden="true">*</span></label>
+          <input class="campo__input" type="text" id="f-nombre" placeholder="Ej. Café La Paloma" maxlength="120" autocomplete="off" />
+          <p class="campo__error hidden" id="err-nombre">El nombre es obligatorio</p>
+        </div>
+
+        <!-- Categoría -->
+        <div class="campo">
+          <label class="campo__label" for="f-categoria">Categoría <span class="campo__req" aria-hidden="true">*</span></label>
+          <select class="campo__input" id="f-categoria">
+            <option value="">— elige una —</option>
+            <option value="Restaurante">🍽 Restaurante</option>
+            <option value="Cafetería">☕ Cafetería</option>
+            <option value="Pueblo Mágico">🏡 Pueblo Mágico</option>
+            <option value="A Conocer">🗺 A Conocer</option>
+            <option value="Paseo">🌿 Paseo</option>
+            <option value="Antojito">🌮 Antojito</option>
+            <option value="Naturaleza">🌄 Naturaleza</option>
+          </select>
+          <p class="campo__error hidden" id="err-categoria">Elige una categoría</p>
+        </div>
+
+        <!-- Prioridad -->
+        <div class="campo">
+          <label class="campo__label">Prioridad</label>
+          <div class="prio-opts" role="group" aria-label="Prioridad">
+            <label class="prio-opt">
+              <input type="radio" name="prioridad" value="alta" />
+              <span class="prio-opt__label prio-opt__label--alta">★★★ Alta</span>
+            </label>
+            <label class="prio-opt">
+              <input type="radio" name="prioridad" value="media" checked />
+              <span class="prio-opt__label prio-opt__label--media">★★☆ Media</span>
+            </label>
+            <label class="prio-opt">
+              <input type="radio" name="prioridad" value="baja" />
+              <span class="prio-opt__label prio-opt__label--baja">★☆☆ Baja</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="campo">
+          <label class="campo__label" for="f-descripcion">Notas o descripción</label>
+          <textarea class="campo__input campo__textarea" id="f-descripcion" placeholder="¿Dónde lo viste? ¿Qué tiene de especial? ¿Qué quieren probar?" maxlength="500" rows="3"></textarea>
+          <p class="campo__count"><span id="count-desc">0</span>/500</p>
+        </div>
+
+        <!-- Link Maps -->
+        <div class="campo">
+          <label class="campo__label" for="f-maps">Link de Google Maps</label>
+          <input class="campo__input" type="url" id="f-maps" placeholder="https://maps.google.com/..." />
+          <p class="campo__error hidden" id="err-maps">El link no parece válido</p>
+        </div>
+
+        <!-- Link Red social -->
+        <div class="campo">
+          <label class="campo__label" for="f-social">Link de red social (post/reel)</label>
+          <input class="campo__input" type="url" id="f-social" placeholder="https://instagram.com/..." />
+          <p class="campo__error hidden" id="err-social">El link no parece válido</p>
+        </div>
+
+      </div><!-- /modal__body -->
+
+      <div class="modal__footer">
+        <button class="modal__btn modal__btn--cancel" id="btn-cancelar">Cancelar</button>
+        <button class="modal__btn modal__btn--save" id="btn-guardar">
+          <span class="btn-save__texto">Guardar lugar</span>
+          <span class="btn-save__spinner hidden" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░░ TOAST NOTIFICACIÓN ░░░ -->
+  <div class="toast hidden" id="toast" role="alert" aria-live="assertive"></div>
 
   <!-- Template de tarjeta (oculto, clonado por JS) -->
   <template id="tpl-tarjeta">
