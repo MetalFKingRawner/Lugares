@@ -603,7 +603,7 @@ btnGuardar.addEventListener("click", async () => {
     cerrarModal();
     mostrarToast(esModoDemo
       ? `"${datos.nombre}" guardado (modo demo)`
-      : `"${datos.nombre}" guardado en Airtable 🎉`
+      : `"${datos.nombre}" guardado exitosamente 🎉`
     );
 
   } catch (err) {
