@@ -10,7 +10,7 @@
 const AIRTABLE_CONFIG = {
   // Tu token de acceso personal (PAT)
   // Ejemplo: "patXXXXXXXXXXXXXX.xxxxxxxx..."
-  token: "patu7UyqkIReA5N9o.94831da95d65d22bc92a762ce777c4e37cd801c06f476c1712165259a71981c5",
+  token: "patu7UyqkIReA5N9o",
 
   // El ID de tu base de datos en Airtable
   // Lo encuentras en la URL: airtable.com/appXXXXXXXXXX/...
